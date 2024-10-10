@@ -1,0 +1,38 @@
+@import '@/theme/_mixins.scss';
+@import '@/theme/_breakpoint.scss';
+
+.wrapper {
+  width: calc(100vw/2);
+  box-sizing: border-box;
+  padding: pxToVw(15, true);
+
+  @include respond-to('sm') {
+    width: calc(100vw/5);
+    padding: pxToVw(10);
+  }
+
+  @include respond-to('md') {
+    width: 16.66667vw;
+  }
+}
+.card {
+  border: 1px solid #e9e6e6;
+  border-radius: 8px;
+
+  &__media {
+    width: 100%;
+    aspect-ratio: 4/4;
+  }
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: pxToVw(8, true);
+  padding: pxToVw(8, true);
+
+  @include respond-to('sm') {
+    gap: pxToVw(14);
+    padding: pxToVw(8); 
+  }
+}

@@ -2,6 +2,7 @@ import currency from "@/utils/currency";
 import Navbar from "./components/Navbar"
 import ProductCard from "./components/ProductCard";
 import styles from "./page.module.scss"
+import CardSkeleton from "./components/Skeleton/CardSkeleton";
 
 export default function Home() {
   return (
@@ -10,7 +11,14 @@ export default function Home() {
       <div style={{ marginTop: '100px' }}>
         <h1 className={styles.gogo}>Tokobiru</h1>
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {[1,2,3,4,5,6,7].map(val => <ProductCard 
+          {[...Array(4)].map((num, ind) => (
+              <CardSkeleton
+                key={`skeleton-${ind}`}
+              />
+            ))}
+        </div>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+          {[...Array(7)].map(val => <ProductCard 
             key={val}
             name="Jual Jaket Kulit PREMIUM buatan lokal"
             price={currency(300000)}
