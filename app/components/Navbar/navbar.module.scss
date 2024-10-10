@@ -1,0 +1,50 @@
+@import '@/theme/breakpoint.module.scss';
+@import '@/theme/palette.module.scss';
+
+.container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 100;
+
+  .header {
+    padding: 16px;
+    background-color: $primary-main;
+    color: white;
+
+    @include respond-to('md') {
+      padding: 16px 40px;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 40px;
+  row-gap: 1rem;
+
+  .brand {
+    width: 100%;
+    color: white;
+    text-align: center;
+
+    @include respond-to('lg') {
+      width: unset;
+    }
+  }
+
+  .actions {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    @include respond-to('lg') {
+      gap: 40px;
+    }
+  }
+}
