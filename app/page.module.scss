@@ -1,0 +1,10 @@
+@import '@/theme/breakpoint.module.scss';
+@import '@/theme/palette.module.scss';
+
+.gogo {
+  color: $primary-main;
+
+  @include respond-to('md') {
+    color: red;
+  }
+}
