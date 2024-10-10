@@ -1,0 +1,12 @@
+@import '@/theme/_mixins.scss';
+@import '@/theme/_palette.scss';
+@import '@/theme/_breakpoint.scss';
+
+.discount__badge-content {
+  color: $text-white;
+  font-size: pxToVw(12, true);
+
+  @include respond-to('sm') {
+    font-size: pxToVw(12);
+  }
+}
