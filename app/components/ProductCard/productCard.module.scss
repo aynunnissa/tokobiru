@@ -1,0 +1,73 @@
+@import '@/theme/_mixins.scss';
+@import '@/theme/_breakpoint.scss';
+
+.wrapper {
+  width: calc(100vw/2);
+  box-sizing: border-box;
+  padding: pxToVw(15, true);
+
+  @include respond-to('sm') {
+    width: calc(100vw/5);
+    padding: pxToVw(10);
+  }
+
+  @include respond-to('md') {
+    width: 16.66667vw;
+  }
+}
+.card {
+  border: 1px solid #e9e6e6;
+  border-radius: 8px;
+
+  &__media {
+    position: relative;
+    border-radius: inherit;
+
+    img {
+      border-radius: inherit;
+    }
+  }
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: pxToVw(8, true);
+  padding: pxToVw(8, true);
+  font-size: pxToVw(16, true);
+
+  &__divider {
+    border: pxToVw(0.5, true) solid rgb(237, 237, 237);
+  }
+  &__title {
+    font-weight: 500;
+  }
+  &__price {
+    font-weight: 600;
+    color: #2d91f5;
+  }
+  &__review {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: pxToVw(12, true);
+    color: rgb(120, 120, 120);
+
+    &-icon {
+      color: rgb(255, 191, 0);
+    }
+  }
+
+  @include respond-to('sm') {
+    gap: pxToVw(8);
+    padding: pxToVw(8);
+    font-size: pxToVw(16);
+    
+    &__divider {
+      border-width: pxToVw(0.5);
+    }
+    &__review {
+      font-size: pxToVw(12);
+    }
+  }
+}
