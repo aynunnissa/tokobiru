@@ -1,0 +1,31 @@
+@import '@/theme/_mixins.scss';
+@import '@/theme/_breakpoint.scss';
+@import '@/theme/_palette.scss';
+
+.search {
+  &__title {
+    border-bottom: 1px solid #e1e7ee;
+    margin-bottom: 16px;
+
+    h3 {
+      display: inline-block;
+      color: $text-dark-gray;
+      padding-bottom: 12px;
+      border-bottom: 2px solid $primary-main;
+    }
+    
+    span {
+      color: $primary-main;
+    }
+  }
+
+  &__products {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: pxToVw(-15, true);
+
+    @include respond-to('sm') {
+      margin-left: pxToVw(-10);
+    }
+  }
+}
