@@ -1,0 +1,21 @@
+@import '@/theme/_mixins.scss';
+@import '@/theme/_palette.scss';
+@import '@/theme/_breakpoint.scss';
+
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: inherit;
+}
+
+.main {
+  border-top-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+  padding: pxToVw(8, true);
+  background-color: $highlight-red;
+  
+  @include respond-to('sm') {
+    padding: pxToVw(8);
+  }
+}
