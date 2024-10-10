@@ -1,0 +1,4 @@
+@function pxToVw($px, $is-mobile-breakpoint: false) {
+  $current-breakpoint: if($is-mobile-breakpoint, 576, 1440);
+  @return ($px / $current-breakpoint) * 100 * 1vw; 
+}
