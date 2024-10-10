@@ -10,6 +10,22 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'my-json-server.typicode.com',
+        port: '',
+        pathname: '/aynunnissa/tokobiru-data/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+        port: '',
+        pathname: '/aynunnissa/tokobiru-data/**',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

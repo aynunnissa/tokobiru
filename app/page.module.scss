@@ -1,5 +1,6 @@
 @import '@/theme/_breakpoint.scss';
 @import '@/theme/_palette.scss';
+@import '@/theme/_mixins.scss';
 
 .gogo {
   color: $primary-main;
@@ -7,4 +8,9 @@
   @include respond-to('md') {
     color: red;
   }
+}
+
+.main {
+  margin-top: 100px;
+  padding: 0 pxToVw(32);
 }

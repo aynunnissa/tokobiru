@@ -1,6 +1,5 @@
 import Image from "next/image";
 import styles from "./productCard.module.scss";
-import DefaultImage from "@/public/images/default-product.webp";
 import DiscountBadge from "../Badge/Discount";
 
 interface IProduct {
@@ -22,9 +21,9 @@ const ProductCard = (props: IProduct) => {
         <div className={styles.card__media}>
           {
             props.hasDiscount 
-            && <DiscountBadge percentage={props.discountPercent || ''} text={props.discountCaption} />
+            && <DiscountBadge percentage={props.discountPercent ?? ''} text={props.discountCaption} />
           }
-          <Image layout="responsive" width={50} height={50} alt={props.altImage || props.name} src={DefaultImage} />
+          <Image layout="responsive" width={50} height={50} alt={props.altImage ?? props.name} src={props.image} />
         </div>
         <div className={styles.product}>
           <div className={styles.product__title}>{props.name}</div>

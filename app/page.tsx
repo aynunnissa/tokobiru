@@ -1,35 +1,37 @@
-import currency from "@/utils/currency";
 import Navbar from "./components/Navbar"
-import ProductCard from "./components/ProductCard";
 import styles from "./page.module.scss"
-import CardSkeleton from "./components/Skeleton/CardSkeleton";
+import RecommendationSection from "./features/home/Recommendation";
 
-export default function Home() {
+async function GetProducts() {
+  try {
+    const response = await fetch('https://my-json-server.typicode.com/aynunnissa/tokobiru-data/products');
+
+    if (!response.ok) {
+      throw new Error('Error when fetching data');
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
+
+export default async function Home() {
+  const products = await GetProducts();
   return (
     <div className="page">
       <Navbar />
-      <div style={{ marginTop: '100px' }}>
-        <h1 className={styles.gogo}>Tokobiru</h1>
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {[...Array(4)].map((num, ind) => (
+      <div className={styles.main}>
+        {/* <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+          {[...Array(4)].map((num) => (
               <CardSkeleton
-                key={`skeleton-${ind}`}
+                key={`skeleton-${num}`}
               />
             ))}
-        </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {[...Array(7)].map(val => <ProductCard 
-            key={val}
-            name="Jual Jaket Kulit PREMIUM buatan lokal"
-            price={currency(300000)}
-            image=""
-            hasDiscount={true}
-            discountPercent="50%"
-            discountCaption="OFF"
-            selling="1RB terjual"
-            rating="4.7"
-          />)}
-        </div>
+        </div> */}
+        <RecommendationSection data={products} />
       </div>
     </div>
   );
