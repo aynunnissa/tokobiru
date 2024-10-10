@@ -1,0 +1,157 @@
+@import '@/theme/_breakpoint.scss';
+@import '@/theme/_palette.scss';
+@import '@/theme/_mixins.scss';
+
+.gogo {
+  color: $primary-main;
+
+  @include respond-to('md') {
+    color: red;
+  }
+}
+
+.main {
+  margin-top: 150px;
+  padding: 0 pxToVw(32);
+  width: 100%;
+
+  @include respond-to('lg') {
+    margin-top: 100px;
+  }
+}
+
+.others {
+  margin-top: pxToVw(56);
+}
+
+.product {
+  &__detail {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+
+    @include respond-to('lg') {
+      flex-direction: row;
+    }
+  }
+
+  &__gallery {
+    flex: 0 0 40%;
+    position: relative;
+
+  }
+
+  &__information {
+    flex: 0 0 60%;
+  }
+
+  &__review {
+    margin: pxToVw(16) 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $text-dark-gray;
+
+    span {
+      color: rgb(255, 191, 0);
+    }
+  }
+
+  &__price {
+    border-radius: 8px;
+    padding: pxToVw(16);
+    background-color: #f2f5f8;
+
+    &-current {
+      color: $primary-main;
+      font-weight: 700;
+      font-size: pxToVw(32);
+    }
+  }
+
+  &__discount {
+    margin-top: pxToVw(8);
+    display: flex;
+    align-items: center;
+    gap: pxToVw(8);
+
+    .price-discounted {
+      color: $text-dark-gray;
+      text-decoration: line-through;
+      font-size: pxToVw(16);
+      font-weight: 400;
+    }
+  }
+
+  &__discount-label {
+    padding: pxToVw(4);
+    font-weight: 600;
+    font-size: pxToVw(10);
+    background-color: $primary-main;
+    color: white;
+  }
+
+  &__description {
+    margin: pxToVw(32) 0;
+
+    &-title {
+      font-weight: 600;
+      margin-bottom: pxToVw(8);
+    }
+
+    &-content {
+      color: $text-dark-gray;
+    }
+  }
+
+  &__actions {
+    button {
+      padding: pxToVw(18) pxToVw(40);
+      background-color: $primary-main;
+      color: white;
+      font-size: pxToVw(18);
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  &__divider {
+    margin: pxToVw(32) 0;
+    border: pxToVw(0.5) solid rgb(237, 237, 237);
+  }
+
+  &__report {
+    color: $text-dark-gray;
+
+    span {
+      font-weight: 600;
+    }
+  }
+}
+
+.image-show {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/4;
+
+
+}
+
+.image-list {
+  display: none;
+  margin-top: 20px;
+  
+  @include respond-to('lg') {
+    display: flex;
+    gap: 10px;
+  }
+
+  div {
+    flex: 1 1 calc(100%/4);
+    max-width: calc(100%/4);
+    position: relative;
+    aspect-ratio: 4/4;
+  }
+}
