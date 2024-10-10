@@ -1,5 +1,5 @@
 import styles from "./recommendation.module.scss"
-import ProductCard from "@/app/components/ProductCard";
+import ProductCard from "@/components/ProductCard";
 import currency from "@/utils/currency";
 
 interface IProductData {

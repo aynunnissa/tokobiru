@@ -1,6 +1,6 @@
-import Navbar from "../components/Navbar"
+import Navbar from "@/components/Navbar";
 import styles from "./page.module.scss"
-import RecommendationSection from "../features/home/Recommendation";
+import ProductSearch from "@/features/product/ProductSearch";
 
 async function GetProducts() {
   try {
@@ -20,18 +20,12 @@ async function GetProducts() {
 
 export default async function Home() {
   const products = await GetProducts();
+  
   return (
     <div className="page">
       <Navbar />
       <div className={styles.main}>
-        {/* <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {[...Array(4)].map((num) => (
-              <CardSkeleton
-                key={`skeleton-${num}`}
-              />
-            ))}
-        </div> */}
-        <RecommendationSection data={products} />
+        <ProductSearch data={products} />
       </div>
     </div>
   );
