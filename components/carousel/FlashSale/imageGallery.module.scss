@@ -1,0 +1,20 @@
+@import "@/theme/_mixins.scss";
+@import "@/theme/_palette.scss";
+@import "@/theme/_breakpoint.scss";
+
+.carousel {
+  &__slide {
+    position: relative;
+    flex: 0 0 calc(50% - pxToVw(10, true));
+    margin-right: pxToVw(5, true);
+    box-sizing: border-box;
+   
+    @include respond-to('sm') {
+      flex: 0 0 calc(25% - pxToVw(10));
+    }
+  }
+  
+  &__slide:last-child {
+    margin-right: 0;
+  }
+}

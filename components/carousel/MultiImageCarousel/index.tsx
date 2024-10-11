@@ -1,22 +1,25 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import styles from './imageGallery.module.scss';
+import React, { ReactNode, useEffect, useState } from 'react';
+import styles from './multiImageCarousel.module.scss';
+import { breakpoints } from '@/utils/breakpoint';
 
 interface CarouselProps {
-  slides: string[];
+  totalSlides: number,
+  minSlide?: number,
+  maxSlide?: number,
+  breakpoint?: number,
+  children: ReactNode
 }
 
-const Carousel = ({ slides }: CarouselProps) => {
+const MultiImageCarousel = ({ totalSlides, children, minSlide = 1, maxSlide = 4, breakpoint = breakpoints.md }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [slidesToShow, setSlidesToShow] = useState(1); 
-  const totalSlides = slides.length;
+  const [slidesToShow, setSlidesToShow] = useState(minSlide); 
 
   useEffect(() => {
     const handleResize = () => {
       if (typeof window !== 'undefined') {
-        setSlidesToShow(window.innerWidth < 768 ? 1 : 4);
+        setSlidesToShow(window.innerWidth < breakpoint ? minSlide : maxSlide);
         if (currentIndex >= totalSlides - slidesToShow) {
           setCurrentIndex(totalSlides - slidesToShow);
         }
@@ -35,16 +38,16 @@ const Carousel = ({ slides }: CarouselProps) => {
   }, [currentIndex, slidesToShow, totalSlides]);
 
   const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+    setCurrentIndex((prevIndex) => Math.max(prevIndex - 2, 0));
   };
 
   const handleNextClick = () => {
-    setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, totalSlides - slidesToShow));
+    setCurrentIndex((prevIndex) => Math.min(prevIndex + 2, totalSlides - slidesToShow));
   };
 
   return (
     <div className={styles.carousel}>
-      {totalSlides > 4 && <button
+      {totalSlides > maxSlide && <button
         className={`${styles.carousel__button} ${styles["carousel__button--prev"]}`}
         onClick={handlePrevClick}
         disabled={currentIndex === 0}
@@ -59,23 +62,11 @@ const Carousel = ({ slides }: CarouselProps) => {
             transform: `translateX(-${(currentIndex * 100) / slidesToShow}%)`
           }}
         >
-          {slides.map((slide, index) => (
-            <div key={index} className={styles.carousel__slide}>
-              <div className={styles["carousel__image-wrapper"]}>
-                <Image
-                  src={slide}
-                  alt=""
-                  fill
-                  objectFit="cover"
-                  sizes="(max-width: 768px) 100vw, 25vw"
-                />
-              </div>
-            </div>
-          ))}
+          { children }
         </div>
       </div>
 
-      {totalSlides > 4 && <button
+      {totalSlides > maxSlide && <button
         className={`${styles.carousel__button} ${styles["carousel__button--next"]}`}
         onClick={handleNextClick}
         disabled={currentIndex >= totalSlides - slidesToShow}
@@ -86,4 +77,4 @@ const Carousel = ({ slides }: CarouselProps) => {
   );
 };
 
-export default Carousel;
+export default MultiImageCarousel;

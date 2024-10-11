@@ -1,0 +1,72 @@
+@import '@/theme/_mixins.scss';
+@import '@/theme/_palette.scss';
+@import '@/theme/_breakpoint.scss';
+
+.flashsale {
+  &__wrapper {
+    border: pxToVw(0.5, true) solid rgb(209, 209, 209);
+    margin: pxToVw(32, true) 0;
+    border-radius: pxToVw(10, true);
+  }
+
+  &__main {
+    padding: pxToVw(32, true);
+  }
+
+  &__products {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding-top: pxToVw(5, true);
+  }
+
+  &__header {
+    padding: pxToVw(10, true) 0;
+    font-size: pxToVw(16, true);
+
+    &-title {
+      display: flex;
+      gap: pxToVw(12, true);
+      align-items: center;
+
+      h3 {
+        color: $highlight-red;
+        font-weight: 700;
+        font-size: pxToVw(24, true);
+      }
+
+      span {
+        color: $text-dark-gray;
+      }
+    }
+  }
+
+  @include respond-to('lg') {
+    &__wrapper {
+      border-width: pxToVw(0.5);
+      margin: pxToVw(32) 0;
+      border-radius: pxToVw(10);
+    }
+  
+    &__main {
+      padding: pxToVw(32);
+    }
+  
+    &__products {
+      padding-top: pxToVw(5);
+    }
+  
+    &__header {
+      padding: pxToVw(10) 0;
+      font-size: pxToVw(16);
+  
+      &-title {
+        gap: pxToVw(12);
+        
+        h3 {
+          font-size: pxToVw(24);
+        }
+      }
+    }
+  }
+}

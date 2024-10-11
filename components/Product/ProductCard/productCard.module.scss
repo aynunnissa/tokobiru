@@ -2,17 +2,29 @@
 @import '@/theme/_breakpoint.scss';
 
 .wrapper {
-  width: calc(100%/2);
   box-sizing: border-box;
   padding: pxToVw(15, true);
 
   @include respond-to('sm') {
-    width: calc(100%/5);
     padding: pxToVw(10);
   }
 
-  @include respond-to('md') {
-    width: calc(100%/6);
+  &.full {
+    width: 100%;
+  }
+
+  &:not(.full) {
+    width: calc(100%/2);
+
+    @include respond-to('sm') {
+      &:not(.full) {
+        width: calc(100%/5);
+      }
+    }
+
+    @include respond-to('md') {
+      width: calc(100%/6);
+    }
   }
 }
 .card {
