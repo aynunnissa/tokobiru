@@ -1,7 +1,5 @@
-// import ProductCard from "@/components/Product/ProductCard";
 import styles from "./flashSale.module.scss";
-// import currency from "@/utils/currency";
-import FlashSaleCarousel from "@/components/carousel/FlashSale";
+import FlashSaleCarousel from "@/components/Carousel/FlashSale";
 
 interface IProductData {
   id: number,
@@ -32,21 +30,6 @@ const FlashSaleSection = ({ data }: IProps) => {
         <div>
           <FlashSaleCarousel products={[...data, ...data]} />
         </div>
-        {/* <div className={styles.flashsale__products}>
-          {data.map(product => (
-            <ProductCard
-              key={`Recommendation-${product.id}`}
-              name={product.name}
-              price={currency(product.price)}
-              image={product.master_image}
-              hasDiscount={product.is_discounted}
-              discountPercent={product.discount_percentage}
-              discountCaption="OFF"
-              selling={product.selling}
-              rating={product.rating}
-            />
-          ))}
-        </div> */}
       </div>
     </div>
   );

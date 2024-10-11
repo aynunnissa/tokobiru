@@ -2,37 +2,48 @@ import Navbar from "../components/Navbar"
 import styles from "./page.module.scss"
 import RecommendationSection from "../features/home/Recommendation";
 import FlashSaleSection from "@/features/home/FlashSale";
+import HeroBanner from "@/features/home/HeroBanner";
+import { BASE_URL } from "@/lib/client";
 
-async function GetProducts() {
+async function getServerSideData() {
   try {
-    const response = await fetch('https://my-json-server.typicode.com/aynunnissa/tokobiru-data/products');
+    const [bannerResp, flashSaleResp, productsResp] = await Promise.all([
+      await fetch(`${BASE_URL}/banners`),
+      await fetch(`${BASE_URL}/flashsale`),
+      await fetch(`${BASE_URL}/products`)
+    ])
 
-    if (!response.ok) {
-      throw new Error('Error when fetching data');
+    if (!bannerResp.ok || !flashSaleResp.ok || !productsResp.ok) {
+      throw new Error('Cannot get homepage data');
     }
 
-    const data = await response.json();
-    return data;
+    const banners = await bannerResp.json();
+    const flashSaleProducts = await flashSaleResp.json();
+    const products = await productsResp.json();
+    return {
+      banners,
+      flashSaleProducts,
+      products
+    }
   } catch (error) {
-    console.error(error);
-    return [];
+    console.log(error);
+    return {
+      banners: [],
+      flashSaleProducts: [],
+      products: []
+    }
   }
 }
 
 export default async function Home() {
-  const products = await GetProducts();
+  const {banners, flashSaleProducts, products} = await getServerSideData();
+
   return (
     <div className="page">
       <Navbar />
       <div className={styles.main}>
-        {/* <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {[...Array(4)].map((num) => (
-              <CardSkeleton
-                key={`skeleton-${num}`}
-              />
-            ))}
-        </div> */}
-        <FlashSaleSection data={products.slice(0, 6)} />
+        <HeroBanner banners={banners} />
+        <FlashSaleSection data={flashSaleProducts} />
         <RecommendationSection data={products} />
       </div>
     </div>

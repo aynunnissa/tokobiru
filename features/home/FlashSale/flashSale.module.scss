@@ -5,7 +5,7 @@
 .flashsale {
   &__wrapper {
     border: pxToVw(0.5, true) solid rgb(209, 209, 209);
-    margin: pxToVw(32, true) 0;
+    margin: pxToVw(16, true) 0;
     border-radius: pxToVw(10, true);
   }
 
@@ -38,6 +38,12 @@
       span {
         color: $text-dark-gray;
       }
+    }
+  }
+
+  @include respond-to('lg') {
+    &__wrapper {
+      margin: pxToVw(18) 0;
     }
   }
 
