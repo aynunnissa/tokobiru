@@ -1,8 +1,32 @@
-import RecommendationSection from "../features/home/Recommendation";
 import FlashSaleSection from "@/features/home/FlashSale";
 import HeroBanner from "@/features/home/HeroBanner";
 import { BASE_URL } from "@/lib/client";
 import PageLayout from "./PageLayout";
+import dynamic from "next/dynamic";
+import ErrorPage from "@/components/Error";
+
+const RecommendationSection = dynamic(() => import("../features/home/Recommendation"));
+
+export const metadata = {
+  title: "Tokobiru Indonesia",
+  description: "Situs belanja termurah dan terbaik di kotamu",
+  openGraph: {
+    title: "Tokobiru Indonesia",
+    description: "Situs belanja termurah dan terbaik di kotamu",
+    url: "https://tokobiru-kohl.vercel.app/",
+    siteName: "Tokobiru",
+    images: [
+      {
+        url: "/favicon.ico",
+        width: 800,
+        height: 600,
+        alt: "t",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
 
 async function getServerSideData() {
   try {
@@ -22,28 +46,31 @@ async function getServerSideData() {
     return {
       banners,
       flashSaleProducts,
-      products
+      products,
+      error: false
     }
   } catch (error) {
     console.log(error);
     return {
       banners: [],
       flashSaleProducts: [],
-      products: []
+      products: [],
+      error: true
     }
   }
 }
 
 export default async function Home() {
-  const {banners, flashSaleProducts, products} = await getServerSideData();
+  const {banners, flashSaleProducts, products, error} = await getServerSideData();
 
   return (
     <PageLayout>
-      <div>
+      {error && <ErrorPage />}
+      {!error && <div>
         <HeroBanner banners={banners} />
         <FlashSaleSection data={flashSaleProducts} />
         <RecommendationSection data={products} />
-      </div>
+      </div>}
     </PageLayout>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 
-// import React, { useEffect, useState } from 'react';
 import styles from './imageGallery.module.scss';
 import ProductCard from '@/components/Product/ProductCard';
 import currency from '@/utils/currency';

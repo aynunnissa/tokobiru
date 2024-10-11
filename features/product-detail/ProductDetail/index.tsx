@@ -80,7 +80,7 @@ const ProductDetail = ({ product }: IProps) => {
         </div>
         <div className={styles.product__description}>
           <p className={styles["product__description-title"]}>Tentang Produk</p>
-          <p className={styles["product__description-content"]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+          <p className={styles["product__description-content"]}>Samsung HD TV 32 UA32T4001 adalah solusi ideal bagi Anda yang mencari TV 32 inch terjangkau dengan kualitas terbaik. Dengan teknologi Wide Colour Enhancer, TV ini menghadirkan warna yang kaya dan tajam, memungkinkan Anda menikmati gambar yang lebih hidup dan detail. Dilengkapi dengan fitur Clean View, TV Samsung 32 inch ini mampu mengurangi noise dan interferensi, sekaligus meningkatkan warna dan kontras untuk tampilan yang lebih jernih. Dengan desain yang ramping dan dimensi yang kompak, TV ini memiliki ukuran 73.5 x 44 x 7.8 cm tanpa kaki dan berat hanya 4.3 kg, sehingga cocok untuk berbagai ruangan.</p>
         </div>
         <div className={styles.product__description}>
           <p className={styles["product__description-title"]}>Variasi Produk</p>

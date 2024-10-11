@@ -77,9 +77,17 @@ const InfiniteCarousel = ({ banners }: IRes) => {
         onTransitionEnd={handleTransitionEnd}
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
-        {banners.map((banner) => (
+        {banners.map((banner, index) => (
           <div className={styles.carousel__slide} key={`banner-${banner.id}`}>
-            <Image width={800} height={350} className={styles.img} src={banner.src} alt={banner.alt_image} />
+            <Image 
+              width={800} 
+              height={350} 
+              className={styles.img}
+              src={banner.src} 
+              alt={banner.alt_image} 
+              loading={ index === 0 ? 'eager' : 'lazy' }
+              priority={ index === 0 }
+            />
           </div>
         ))}
         <div className={styles.carousel__slide}>
