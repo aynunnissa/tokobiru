@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### Stack
+- NextJS 14
+- Typescript
+- Zustand
+- SASS
 
-## Getting Started
+### Features
+- HomePage (Product List, Hero Banner)
+- Dummy Search Page
+- Detail Page
 
-First, run the development server:
+### CheckList
+1. maximize the use of SSR (Serverside Rendering) and CSR (Client side rendering) concept and you
+may use js framework such as nuxt js or next js ✅
+2. using proper state management is a must ✅ **zustand**
+3. proper implementation of CSS pre processor ✅ **sass**
+4. proper use of framework lifecycle ✅
+5. clean code & well-naming variable is a must ✅
+6. responsive layout ✅
+7. deploy your web apps so it can be accessed via internet ✅
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Additional CheckList
+1. Simple Error Handling ✅
+2. Another Improvement (code splitting, lazy loading, mobile first design, simple SEO effort (add metadata) ✅
