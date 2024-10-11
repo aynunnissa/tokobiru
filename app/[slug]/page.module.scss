@@ -2,18 +2,10 @@
 @import '@/theme/_palette.scss';
 @import '@/theme/_mixins.scss';
 
-.gogo {
-  color: $primary-main;
-
-  @include respond-to('md') {
-    color: red;
-  }
-}
-
 .main {
+  width: 100%;
   margin-top: 150px;
   padding: 0 pxToVw(32);
-  width: 100%;
 
   @include respond-to('lg') {
     margin-top: 100px;
@@ -30,16 +22,17 @@
     flex-direction: column;
     gap: 2rem;
     width: 100%;
+    font-size: pxToVw(16, true);
 
-    @include respond-to('lg') {
+    @include respond-to('md') {
       flex-direction: row;
+      font-size: pxToVw(16);
     }
   }
 
   &__gallery {
-    flex: 0 0 40%;
     position: relative;
-
+    flex: 0 0 40%;
   }
 
   &__information {
@@ -66,7 +59,6 @@
     &-current {
       color: $primary-main;
       font-weight: 700;
-      font-size: pxToVw(32);
     }
   }
 
@@ -79,7 +71,6 @@
     .price-discounted {
       color: $text-dark-gray;
       text-decoration: line-through;
-      font-size: pxToVw(16);
       font-weight: 400;
     }
   }
@@ -94,7 +85,7 @@
 
   &__description {
     margin: pxToVw(32) 0;
-
+    
     &-title {
       font-weight: 600;
       margin-bottom: pxToVw(8);
@@ -128,30 +119,29 @@
       font-weight: 600;
     }
   }
-}
 
-.image-show {
-  position: relative;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4/4;
-
-
-}
-
-.image-list {
-  display: none;
-  margin-top: 20px;
-  
-  @include respond-to('lg') {
-    display: flex;
-    gap: 10px;
+  &__images-carousel {
+    margin-top: 20px;
   }
 
-  div {
-    flex: 1 1 calc(100%/4);
-    max-width: calc(100%/4);
+  &__images-show {
+    display: none;
     position: relative;
+    width: 100%;
+    height: auto;
     aspect-ratio: 4/4;
+  
+    @include respond-to('md') {
+      display: block;
+    }
+  }
+
+  &__information h1, &__price-current {
+    font-size: pxToVw(24, true);
+
+    @include respond-to('md') {
+      font-size: pxToVw(32);
+    }
   }
 }
+

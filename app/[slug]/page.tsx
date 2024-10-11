@@ -3,6 +3,7 @@ import styles from "./page.module.scss"
 import Image from "next/image";
 import currency from "@/utils/currency";
 import RecommendationSection from "@/features/home/Recommendation";
+import ImageGallery from "@/components/carousel/ImageGallery";
 
 interface ProductPageProps {
   params: {
@@ -50,7 +51,7 @@ export default async function Home({ params }: Readonly<ProductPageProps>) {
           <div className={styles.product__detail}>
             <div className={styles.product__gallery}>
               <div className={styles.product__images}>
-                <div className={styles["image-show"]}>
+                <div className={styles["product__images-show"]}>
                   <Image 
                     src={product.master_image} 
                     alt="" 
@@ -58,35 +59,8 @@ export default async function Home({ params }: Readonly<ProductPageProps>) {
                     style={{ objectFit: 'contain' }} 
                   />
                 </div>
-                <div className={styles["image-list"]}>
-                    <div>
-                      <Image 
-                        src={product.master_image} 
-                        alt="" 
-                        fill
-                      />
-                    </div>
-                    <div>
-                      <Image 
-                        src={product.master_image} 
-                        alt="" 
-                        fill
-                      />
-                    </div>
-                    <div>
-                      <Image 
-                        src={product.master_image} 
-                        alt="" 
-                        fill
-                      />
-                    </div>
-                    <div>
-                      <Image 
-                        src={product.master_image} 
-                        alt="" 
-                        fill
-                      />
-                    </div>
+                <div className={styles["product__images-carousel"]}>
+                  <ImageGallery slides={[product.master_image, product.master_image, product.master_image, product.master_image, product.master_image, product.master_image]} />
                 </div>
               </div>
             </div>
