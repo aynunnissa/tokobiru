@@ -3,15 +3,37 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from './imageGallery.module.scss';
+import useProductGallery from '@/stores/use-gallery-store';
+import Skeleton from '@/components/Skeleton';
+
+interface IMedia {
+  id: number,
+  src: string
+}
 
 interface CarouselProps {
-  slides: string[];
+  slides: IMedia[];
 }
 
 const Carousel = ({ slides }: CarouselProps) => {
+  const { setMainImage, setActiveMediaId, setActiveVariantId, activeMediaId } = useProductGallery();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(1); 
   const totalSlides = slides.length;
+
+  const handlePrevClick = () => {
+    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+  };
+
+  const handleNextClick = () => {
+    setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, totalSlides - slidesToShow));
+  };
+
+  const handleImageClick = (src: string) => {
+    setMainImage(src);
+    setActiveMediaId(null);
+    setActiveVariantId(null);
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -34,17 +56,16 @@ const Carousel = ({ slides }: CarouselProps) => {
     };
   }, [currentIndex, slidesToShow, totalSlides]);
 
-  const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
-  };
-
-  const handleNextClick = () => {
-    setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, totalSlides - slidesToShow));
-  };
+  useEffect(() => {
+    if (activeMediaId) {
+      const activeMediaInd = slides.findIndex((media) => media.id === activeMediaId);
+      setCurrentIndex(activeMediaInd);
+    }
+  }, [activeMediaId, slides]);
 
   return (
     <div className={styles.carousel}>
-      {totalSlides > 4 && <button
+      {totalSlides > slidesToShow && <button
         className={`${styles.carousel__button} ${styles["carousel__button--prev"]}`}
         onClick={handlePrevClick}
         disabled={currentIndex === 0}
@@ -59,11 +80,15 @@ const Carousel = ({ slides }: CarouselProps) => {
             transform: `translateX(-${(currentIndex * 100) / slidesToShow}%)`
           }}
         >
-          {slides.map((slide, index) => (
-            <div key={index} className={styles.carousel__slide}>
+          {slides ? slides.map((slide, index) => (
+            <div 
+              key={index} 
+              className={styles.carousel__slide}
+              onClick={() => handleImageClick(slide.src)}
+            >
               <div className={styles["carousel__image-wrapper"]}>
                 <Image
-                  src={slide}
+                  src={slide.src}
                   alt=""
                   fill
                   objectFit="cover"
@@ -71,11 +96,11 @@ const Carousel = ({ slides }: CarouselProps) => {
                 />
               </div>
             </div>
-          ))}
+          )) : [...Array(4).fill(<Skeleton width='100%' height='100%' />)]}
         </div>
       </div>
 
-      {totalSlides > 4 && <button
+      {totalSlides > slidesToShow && <button
         className={`${styles.carousel__button} ${styles["carousel__button--next"]}`}
         onClick={handleNextClick}
         disabled={currentIndex >= totalSlides - slidesToShow}
