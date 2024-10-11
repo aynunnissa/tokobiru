@@ -1,7 +1,6 @@
 import ProductSearch from "@/features/product/ProductSearch";
 import { BASE_URL } from "@/lib/client";
 import PageLayout from "../PageLayout";
-import { Metadata } from "next";
 import ErrorPage from "@/components/Error";
 
 async function GetProducts() {
