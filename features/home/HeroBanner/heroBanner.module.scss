@@ -1,0 +1,11 @@
+@import '@/theme/_mixins.scss';
+@import '@/theme/_breakpoint.scss';
+
+.hero__wrapper {
+  position: relative;
+  margin: 0 pxToVw(-32) pxToVw(40) pxToVw(-32);
+
+  @include respond-to('md') {
+    margin: 0 0 pxToVw(40) 0;
+  }
+}
