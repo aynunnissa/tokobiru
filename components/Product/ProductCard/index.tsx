@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./productCard.module.scss";
-import DiscountBadge from "../Badge/Discount";
+import DiscountBadge from "@/components/Badge/Discount";
 
 interface IProduct {
   name: string,
