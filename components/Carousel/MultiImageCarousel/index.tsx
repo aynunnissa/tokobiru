@@ -3,6 +3,9 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import styles from './multiImageCarousel.module.scss';
 import { breakpoints } from '@/utils/breakpoint';
+import ChevronLeftIcon from "@/public/icons/chevron-left.svg";
+import ChevronRightIcon from "@/public/icons/chevron-right.svg";
+import Image from 'next/image';
 
 interface CarouselProps {
   totalSlides: number,
@@ -52,7 +55,9 @@ const MultiImageCarousel = ({ totalSlides, children, minSlide = 1, maxSlide = 4,
         onClick={handlePrevClick}
         disabled={currentIndex === 0}
       >
-        {`<`}
+        <span className={styles["carousel__button--icon"]}>
+          <Image src={ChevronLeftIcon} width={8} height={8} alt='Go to the previous slide' />
+        </span>
       </button>}
 
       <div className={styles.carousel__wrapper}>
@@ -71,7 +76,9 @@ const MultiImageCarousel = ({ totalSlides, children, minSlide = 1, maxSlide = 4,
         onClick={handleNextClick}
         disabled={currentIndex >= totalSlides - slidesToShow}
       >
-        {`>`}
+        <span className={styles["carousel__button--icon"]}>
+          <Image src={ChevronRightIcon} width={8} height={8} alt='Go to the next slide' />
+        </span>
       </button>}
     </div>
   );

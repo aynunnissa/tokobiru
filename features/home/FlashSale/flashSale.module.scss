@@ -4,13 +4,19 @@
 
 .flashsale {
   &__wrapper {
-    border: pxToVw(0.5, true) solid rgb(209, 209, 209);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
     margin: pxToVw(16, true) 0;
     border-radius: pxToVw(10, true);
+
+    &:hover {
+      button {
+        opacity: 1 !important;
+      }
+    }
   }
 
   &__main {
-    padding: pxToVw(32, true);
+    padding: pxToVw(16, true);
   }
 
   &__products {
@@ -32,7 +38,7 @@
       h3 {
         color: $highlight-red;
         font-weight: 700;
-        font-size: pxToVw(24, true);
+        font-size: pxToVw(18, true);
       }
 
       span {
