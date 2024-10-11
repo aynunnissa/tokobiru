@@ -20,7 +20,7 @@ const RecommendationSection = ({ data }: IProps) => {
   return (
     <ListProduct 
       data={data}
-      title="Produk Lain"
+      title="Rekomendasi Produk"
       titleHighlight="Untuk Kamu"
     />
   )

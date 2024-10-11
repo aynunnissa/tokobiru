@@ -1,9 +1,8 @@
-import Navbar from "../components/Navbar"
-import styles from "./page.module.scss"
 import RecommendationSection from "../features/home/Recommendation";
 import FlashSaleSection from "@/features/home/FlashSale";
 import HeroBanner from "@/features/home/HeroBanner";
 import { BASE_URL } from "@/lib/client";
+import PageLayout from "./PageLayout";
 
 async function getServerSideData() {
   try {
@@ -39,13 +38,12 @@ export default async function Home() {
   const {banners, flashSaleProducts, products} = await getServerSideData();
 
   return (
-    <div className="page">
-      <Navbar />
-      <div className={styles.main}>
+    <PageLayout>
+      <div>
         <HeroBanner banners={banners} />
         <FlashSaleSection data={flashSaleProducts} />
         <RecommendationSection data={products} />
       </div>
-    </div>
+    </PageLayout>
   );
 }

@@ -1,0 +1,13 @@
+@import '@/theme/_mixins.scss';
+@import '@/theme/_breakpoint.scss';
+
+.layout {
+  width: 100%;
+  margin-top: 125px;
+  padding: 0 pxToVw(32, true);
+
+  @include respond-to('sm') {
+    margin-top: 100px;
+    padding: 0 pxToVw(40);
+  }
+}

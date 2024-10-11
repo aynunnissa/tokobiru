@@ -32,14 +32,24 @@
     position: absolute;
     z-index: 2;
     border: none;
-    border-radius: 5px;
-    padding: pxToVw(8, true);
+    border-radius: 50%;
     font-size: pxToVw(8, true);
-    background-color: $primary-main;
+    background-color: transparent;
+    opacity: 0.1;
     color: white;
     transition: background-color 0.3s ease;
     cursor: pointer;
   
+    &--icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: pxToVw(30);
+      height: pxToVw(30);
+      border-radius: 50%;
+      background-color: #e0eefb;
+    }
+
     @include respond-to('md') {
       padding: pxToVw(8);
       font-size: pxToVw(8);
@@ -47,7 +57,10 @@
   }
   
   &__button:disabled {
-    background-color: $surface-disabled;
+    .carousel__button--icon {
+      background-color: $surface-disabled;
+    }
+    
     cursor: not-allowed;
   }
   

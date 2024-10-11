@@ -23,6 +23,11 @@
 
   &__information {
     flex: 0 0 60%;
+    padding: 0 pxToVw(8, true) 0 pxToVw(8, true);
+    
+    @include respond-to('md') {
+      padding: 0 pxToVw(32) 0 0;
+    }
   }
 
   &__review {

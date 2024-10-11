@@ -3,9 +3,9 @@
 
 .hero__wrapper {
   position: relative;
-  margin: 0 pxToVw(-32) pxToVw(40) pxToVw(-32);
+  margin: 0 pxToVw(-32, true) pxToVw(40, true) pxToVw(-32, true);
 
-  @include respond-to('md') {
+  @include respond-to('sm') {
     margin: 0 0 pxToVw(40) 0;
   }
 }
