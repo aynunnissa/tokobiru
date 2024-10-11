@@ -2,8 +2,8 @@ import Navbar from "@/components/Navbar";
 import styles from "./page.module.scss"
 import Image from "next/image";
 import currency from "@/utils/currency";
-import RecommendationSection from "@/features/home/Recommendation";
 import ImageGallery from "@/components/carousel/ImageGallery";
+import OtherProducts from "@/features/product-detail/OtherProducts";
 
 interface ProductPageProps {
   params: {
@@ -99,7 +99,7 @@ export default async function Home({ params }: Readonly<ProductPageProps>) {
             </div>
           </div>
           <div className={styles.others}>
-            <RecommendationSection data={products} />
+            <OtherProducts data={products} />
           </div>
         </div>
       </div>
