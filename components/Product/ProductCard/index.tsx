@@ -11,12 +11,13 @@ interface IProduct {
   discountPercent?: string,
   discountCaption?: string,
   selling: string,
-  rating: string
+  rating: string,
+  isFullWidth ?: boolean
 }
 
 const ProductCard = (props: IProduct) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${props.isFullWidth ? styles.full : ''}`}>
       <div className={styles.card}>
         <div className={styles.card__media}>
           {

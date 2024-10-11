@@ -8,7 +8,7 @@ interface CarouselProps {
   slides: string[];
 }
 
-const Carousel: React.FC<CarouselProps> = ({ slides }) => {
+const Carousel = ({ slides }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(1); 
   const totalSlides = slides.length;

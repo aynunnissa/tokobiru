@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar"
 import styles from "./page.module.scss"
 import RecommendationSection from "../features/home/Recommendation";
+import FlashSaleSection from "@/features/home/FlashSale";
 
 async function GetProducts() {
   try {
@@ -31,6 +32,7 @@ export default async function Home() {
               />
             ))}
         </div> */}
+        <FlashSaleSection data={products.slice(0, 6)} />
         <RecommendationSection data={products} />
       </div>
     </div>
