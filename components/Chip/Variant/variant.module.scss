@@ -1,0 +1,37 @@
+@import "@/theme/_palette.scss";
+@import "@/theme/_mixins.scss";
+@import '@/theme/_breakpoint.scss';
+
+.variant {
+  &__wrapper {
+    display: contents;
+  }
+
+  &__main {
+    display: inline-block;
+    border: pxToVw(1, true) solid $surface-disabled;
+    border-radius: pxToVw(8, true);
+    margin: pxToVw(12, true) 0;
+    padding: pxToVw(8, true) pxToVw(12, true);
+    cursor: pointer;
+
+    &.active {
+      border: pxToVw(1, true) solid $primary-main;
+      font-weight: 600;
+      color: $primary-main;
+    }
+  }
+
+  @include respond-to('md') {
+    &__main {
+      border-width: pxToVw(1);
+      border-radius: pxToVw(8);
+      margin: pxToVw(8) 0;
+      padding: pxToVw(8) pxToVw(12);
+      
+      &.active {
+        border-width: pxToVw(1);
+      }
+    }
+  }  
+}

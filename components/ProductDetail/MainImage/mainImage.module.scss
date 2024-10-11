@@ -1,0 +1,13 @@
+@import '@/theme/_breakpoint.scss';
+
+.image__master {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/4;
+
+  @include respond-to('md') {
+    display: block;
+  }
+}

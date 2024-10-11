@@ -2,20 +2,6 @@
 @import '@/theme/_palette.scss';
 @import '@/theme/_mixins.scss';
 
-.main {
-  width: 100%;
-  margin-top: 150px;
-  padding: 0 pxToVw(32);
-
-  @include respond-to('lg') {
-    margin-top: 100px;
-  }
-}
-
-.others {
-  margin-top: pxToVw(56);
-}
-
 .product {
   &__detail {
     display: flex;
@@ -98,12 +84,18 @@
 
   &__actions {
     button {
-      padding: pxToVw(18) pxToVw(40);
+      border-radius: 8px;
+      padding: pxToVw(12, true) pxToVw(20, true);
       background-color: $primary-main;
       color: white;
-      font-size: pxToVw(18);
+      font-size: pxToVw(18, true);
       border: none;
       cursor: pointer;
+
+      @include respond-to('md') {
+        padding: pxToVw(18) pxToVw(40);
+        font-size: pxToVw(18);
+      }
     }
   }
 
@@ -121,7 +113,13 @@
   }
 
   &__images-carousel {
-    margin-top: 20px;
+    margin-top: pxToVw(20);
+  }
+
+  &__variant {
+    display: flex;
+    align-items: center;
+    gap: pxToVw(8);
   }
 
   &__information h1, &__price-current {
