@@ -1,5 +1,6 @@
 @import '@/theme/_mixins.scss';
 @import '@/theme/_breakpoint.scss';
+@import '@/theme/_palette.scss';
 
 .wrapper {
   box-sizing: border-box;
@@ -38,6 +39,13 @@
     img {
       border-radius: inherit;
     }
+  }
+
+  &:hover {
+    border: 1px solid $primary-main;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+    transform: scale(1.01);
+    transition-duration: 200ms;
   }
 }
 
