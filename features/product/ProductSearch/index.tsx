@@ -29,6 +29,7 @@ const ProductSearch = ({ data }: IProps) => {
       <div className={styles.search__title}>
         <h3>Hasil pencarian untuk <span>{keyword}</span></h3>
       </div>
+      <mark>Note: This is just a dummy search feature</mark>
       <div className={styles.search__products}>
         {data.map(product => (
           <ProductCard 
