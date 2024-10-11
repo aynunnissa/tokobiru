@@ -6,10 +6,12 @@
   &__title {
     border-bottom: pxToVw(1, true) solid #e1e7ee;
     margin-bottom: pxToVw(16, true);
+    font-size: pxToVw(16, true);
 
     h3 {
       display: inline-block;
       color: $text-dark-gray;
+      padding-top: pxToVw(16, true);
       padding-bottom: pxToVw(12, true);
       border-bottom: pxToVw(2, true) solid $primary-main;
     }
@@ -39,9 +41,11 @@
     &__title {
       border-bottom-width: pxToVw(1);
       margin-bottom: pxToVw(16);
+      font-size: pxToVw(18);
   
       h3 {
         padding-bottom: pxToVw(12);
+        padding-top: 0;
         border-bottom-width: pxToVw(2);
       }
     }

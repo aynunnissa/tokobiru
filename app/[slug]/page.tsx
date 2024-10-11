@@ -1,8 +1,8 @@
-import Navbar from "@/components/Navbar";
 import styles from "./page.module.scss"
 import OtherProducts from "@/features/product-detail/OtherProducts";
 import { BASE_URL } from "@/lib/client";
 import ProductDetail from "@/features/product-detail/ProductDetail";
+import PageLayout from "../PageLayout";
 
 interface ProductPageProps {
   params: {
@@ -43,16 +43,11 @@ export default async function Home({ params }: Readonly<ProductPageProps>) {
   if (!product || !products) return <p>Loading...</p>
   
   return (
-    <div className="page">
-      <Navbar />
-      <div style={{ margin: '6rem 2rem 0 2rem'}}>
-        <div className={styles.main}>
-          <ProductDetail product={product} />
-          <div className={styles.others}>
-            <OtherProducts data={products} />
-          </div>
-        </div>
+    <PageLayout>
+      <ProductDetail product={product} />
+      <div className={styles.others}>
+        <OtherProducts data={products} />
       </div>
-    </div>
+    </PageLayout>
   );
 }

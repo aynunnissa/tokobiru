@@ -1,5 +1,3 @@
-import Navbar from "@/components/Navbar";
-import styles from "./page.module.scss"
 import ProductSearch from "@/features/product/ProductSearch";
 import { BASE_URL } from "@/lib/client";
 import PageLayout from "../PageLayout";
@@ -25,12 +23,7 @@ export default async function Home() {
   
   return (
     <PageLayout>
-      <div className="page">
-        <Navbar />
-        <div className={styles.main}>
-          <ProductSearch data={products} />
-        </div>
-      </div>
+      <ProductSearch data={products} />
     </PageLayout>
   );
 }

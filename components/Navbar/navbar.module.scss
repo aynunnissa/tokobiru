@@ -13,7 +13,7 @@
     background-color: $primary-main;
     color: white;
 
-    @include respond-to('md') {
+    @include respond-to('sm') {
       padding: 16px 40px;
     }
   }
@@ -32,7 +32,7 @@
     color: white;
     text-align: center;
 
-    @include respond-to('lg') {
+    @include respond-to('sm') {
       width: unset;
     }
   }
@@ -43,7 +43,7 @@
     align-items: center;
     gap: 24px;
 
-    @include respond-to('lg') {
+    @include respond-to('sm') {
       gap: 40px;
     }
   }
