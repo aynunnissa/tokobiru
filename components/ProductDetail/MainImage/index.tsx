@@ -15,6 +15,8 @@ const MainImage = () => {
           alt="" 
           fill
           style={{ objectFit: 'contain' }}
+          loading="eager"
+          priority
         /> : <Skeleton width="100%" height="100%" />}
       </div>
   )
