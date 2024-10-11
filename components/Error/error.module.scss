@@ -1,0 +1,43 @@
+@import '@/theme/_mixins.scss';
+@import '@/theme/_breakpoint.scss';
+
+.error {
+  &__wrapper {
+    height: calc(100vh - 150px);
+    width: 100%;
+  }
+
+  &__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: pxToVw(16, true);
+    font-size: pxToVw(20, true);
+  }
+
+  &__image {
+    position: relative;
+    aspect-ratio: 4/4;
+    width: pxToVw(300, true);
+    height: auto;
+  }
+
+  @include respond-to('md') {
+    &__content {
+      gap: pxToVw(16);
+      font-size: pxToVw(20);
+    }
+  
+    &__image {
+      width: pxToVw(300);
+    }
+  }
+}

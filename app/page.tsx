@@ -3,6 +3,7 @@ import HeroBanner from "@/features/home/HeroBanner";
 import { BASE_URL } from "@/lib/client";
 import PageLayout from "./PageLayout";
 import dynamic from "next/dynamic";
+import ErrorPage from "@/components/Error";
 
 const RecommendationSection = dynamic(() => import("../features/home/Recommendation"));
 
@@ -45,28 +46,31 @@ async function getServerSideData() {
     return {
       banners,
       flashSaleProducts,
-      products
+      products,
+      error: false
     }
   } catch (error) {
     console.log(error);
     return {
       banners: [],
       flashSaleProducts: [],
-      products: []
+      products: [],
+      error: true
     }
   }
 }
 
 export default async function Home() {
-  const {banners, flashSaleProducts, products} = await getServerSideData();
+  const {banners, flashSaleProducts, products, error} = await getServerSideData();
 
   return (
     <PageLayout>
-      <div>
+      {error && <ErrorPage />}
+      {!error && <div>
         <HeroBanner banners={banners} />
         <FlashSaleSection data={flashSaleProducts} />
         <RecommendationSection data={products} />
-      </div>
+      </div>}
     </PageLayout>
   );
 }

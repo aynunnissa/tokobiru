@@ -16,6 +16,12 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'my-json-server.typicode.com',
         port: '',
+        pathname: '/aynunnissa/tokobiru-data2/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'my-json-server.typicode.com',
+        port: '',
         pathname: '/aynunnissa/tokobiru-data/**',
       },
       {

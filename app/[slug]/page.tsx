@@ -4,6 +4,7 @@ import ProductDetail from "@/features/product-detail/ProductDetail";
 import PageLayout from "../PageLayout";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
+import ErrorPage from "@/components/Error";
 
 const OtherProducts = dynamic(() => import("@/features/product-detail/OtherProducts"));
 
@@ -29,13 +30,15 @@ async function GetProductDetail(slug: string) {
 
     return {
       product: productDetail[0],
-      products
+      products,
+      error: false
     };
   } catch (error) {
     console.error(error);
     return {
       product: {},
-      products: []
+      products: [],
+      error: true
     };
   }
 }
@@ -62,7 +65,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home({ params }: Readonly<ProductPageProps>) {
-  const { product, products } = await GetProductDetail(params.slug);
+  const { product, products, error } = await GetProductDetail(params.slug);
 
   if (!product || !products) return <p>Loading...</p>
 
@@ -71,10 +74,13 @@ export default async function Home({ params }: Readonly<ProductPageProps>) {
   
   return (
     <PageLayout>
-      <ProductDetail product={product} />
-      <div className={styles.others}>
-        <OtherProducts data={products} />
-      </div>
+      {error && <ErrorPage />}
+      {!error && <>
+        <ProductDetail product={product} />
+        <div className={styles.others}>
+          <OtherProducts data={products} />
+        </div>
+      </>}
     </PageLayout>
   );
 }
