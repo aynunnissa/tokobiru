@@ -1,9 +1,8 @@
-import Image from 'next/image';
 import styles from './navbar.module.scss'
-import CartIcon from '@/public/icons/cart.svg'
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Skeleton from '../Skeleton';
+import DemoCart from './DemoCart';
 
 const SearchBar = dynamic(() => import('./SearchBar'),{
   ssr: false,
@@ -22,11 +21,7 @@ const Navbar = () => {
           </div>
           <div className={styles.actions}>
             <SearchBar />
-            <div>
-              <h1>
-                <Image src={CartIcon} alt="Cek keranjang belanja" width={25} height={25} />
-              </h1>
-            </div>
+            <DemoCart />
           </div>
         </div>
       </div>
