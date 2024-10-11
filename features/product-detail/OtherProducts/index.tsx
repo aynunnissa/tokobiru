@@ -16,7 +16,7 @@ interface IProps {
   data: Array<IProductData>
 }
 
-const RecommendationSection = ({ data }: IProps) => {
+const OtherProducts = async ({ data }: IProps) => {
   return (
     <ListProduct 
       data={data}
@@ -26,4 +26,4 @@ const RecommendationSection = ({ data }: IProps) => {
   )
 }
 
-export default RecommendationSection;
+export default OtherProducts;
