@@ -1,7 +1,7 @@
 "use client";
 
+import ProductCard from "@/components/Product/ProductCard";
 import styles from "./productSearch.module.scss"
-import ProductCard from "@/components/ProductCard";
 import useProductSearch from "@/stores/use-product-search";
 import currency from "@/utils/currency";
 
