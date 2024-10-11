@@ -1,5 +1,5 @@
 import styles from "./flashSale.module.scss";
-import FlashSaleCarousel from "@/components/CarouselTemp/FlashSale";
+import FlashSaleCarousel from "@/components/Carousel/FlashSale";
 
 interface IProductData {
   id: number,

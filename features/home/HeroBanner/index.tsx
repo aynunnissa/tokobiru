@@ -1,5 +1,5 @@
 import styles from "./heroBanner.module.scss";
-import InfiniteCarousel from "@/components/CarouselTemp/InifiniteCarousel";
+import InfiniteCarousel from "@/components/Carousel/InifiniteCarousel";
 
 type IBanner = {
   id: number,

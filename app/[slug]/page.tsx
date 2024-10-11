@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import styles from "./page.module.scss"
 import Image from "next/image";
 import currency from "@/utils/currency";
-import ImageGallery from "@/components/CarouselTemp/ImageGallery";
+import ImageGallery from "@/components/Carousel/ImageGallery";
 import OtherProducts from "@/features/product-detail/OtherProducts";
 
 interface ProductPageProps {
