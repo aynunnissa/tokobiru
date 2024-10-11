@@ -1,8 +1,10 @@
-import RecommendationSection from "../features/home/Recommendation";
 import FlashSaleSection from "@/features/home/FlashSale";
 import HeroBanner from "@/features/home/HeroBanner";
 import { BASE_URL } from "@/lib/client";
 import PageLayout from "./PageLayout";
+import dynamic from "next/dynamic";
+
+const RecommendationSection = dynamic(() => import("../features/home/Recommendation"));
 
 export const metadata = {
   title: "Tokobiru Indonesia",

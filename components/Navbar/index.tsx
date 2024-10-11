@@ -1,8 +1,14 @@
 import Image from 'next/image';
 import styles from './navbar.module.scss'
-import SearchBar from './SearchBar';
 import CartIcon from '@/public/icons/cart.svg'
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+import Skeleton from '../Skeleton';
+
+const SearchBar = dynamic(() => import('./SearchBar'),{
+  ssr: false,
+  loading: () => <Skeleton width='100%' height='2.5rem' />
+})
 
 const Navbar = () => {
   return(

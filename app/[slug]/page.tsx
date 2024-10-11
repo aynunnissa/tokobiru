@@ -1,9 +1,11 @@
 import styles from "./page.module.scss"
-import OtherProducts from "@/features/product-detail/OtherProducts";
 import { BASE_URL } from "@/lib/client";
 import ProductDetail from "@/features/product-detail/ProductDetail";
 import PageLayout from "../PageLayout";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
+
+const OtherProducts = dynamic(() => import("@/features/product-detail/OtherProducts"));
 
 interface ProductPageProps {
   params: {
