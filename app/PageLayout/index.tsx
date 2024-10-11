@@ -7,7 +7,8 @@ const PageLayout = ({ children }: { children: ReactNode }) => {
     <div className={styles.layout}>
       <Navbar />
       <div>{ children }</div>
-    </div>)
+    </div>
+  )
 }
 
 export default PageLayout;

@@ -3,6 +3,7 @@ import OtherProducts from "@/features/product-detail/OtherProducts";
 import { BASE_URL } from "@/lib/client";
 import ProductDetail from "@/features/product-detail/ProductDetail";
 import PageLayout from "../PageLayout";
+import { Metadata } from "next";
 
 interface ProductPageProps {
   params: {
@@ -37,10 +38,34 @@ async function GetProductDetail(slug: string) {
   }
 }
 
+export const metadata: Metadata = {
+  title: "Detail Produk",
+  description: "Situs belanja termurah dan terbaik di kotamu",
+  openGraph: {
+    title: "Tokobiru Indonesia",
+    description: "Situs belanja termurah dan terbaik di kotamu",
+    url: "https://tokobiru-kohl.vercel.app/",
+    siteName: "Tokobiru",
+    images: [
+      {
+        url: "/favicon.ico",
+        width: 800,
+        height: 600,
+        alt: "t",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
+
 export default async function Home({ params }: Readonly<ProductPageProps>) {
   const { product, products } = await GetProductDetail(params.slug);
-  
+
   if (!product || !products) return <p>Loading...</p>
+
+  metadata.title = product.name;
+  metadata.description = product.description;
   
   return (
     <PageLayout>

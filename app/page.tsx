@@ -4,6 +4,27 @@ import HeroBanner from "@/features/home/HeroBanner";
 import { BASE_URL } from "@/lib/client";
 import PageLayout from "./PageLayout";
 
+export const metadata = {
+  title: "Tokobiru Indonesia",
+  description: "Situs belanja termurah dan terbaik di kotamu",
+  openGraph: {
+    title: "Tokobiru Indonesia",
+    description: "Situs belanja termurah dan terbaik di kotamu",
+    url: "https://tokobiru-kohl.vercel.app/",
+    siteName: "Tokobiru",
+    images: [
+      {
+        url: "/favicon.ico",
+        width: 800,
+        height: 600,
+        alt: "t",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
+
 async function getServerSideData() {
   try {
     const [bannerResp, flashSaleResp, productsResp] = await Promise.all([
